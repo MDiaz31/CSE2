@@ -1,9 +1,8 @@
 //Michael Diaz
-//10.10.14
+//10.26.14
 //Root Java
-//The program prompts the user to give the value of their
-//incomes by the thousand and tells them their tax
-//
+//The program prompts the user to enter a number then returns
+//the square root
 //
 //
 //
@@ -23,9 +22,10 @@ public class Root                                         {
         input=new Scanner (System.in);
         
         
-        
+        //user enters input
         System.out.println("enter your number: ");
         
+        //define necessary variables
         double min = 0;
         double yourNum = input.nextInt();
         double max = yourNum+1;
@@ -35,16 +35,18 @@ public class Root                                         {
       
        
         
-        
+        //set the tolerance
         while (difference>0.0000001*(1+yourNum))     {
             
-            
+            //half the value of the max if necessary to find root
             newMiddleValue=((max+min)/2);
             
             double highVal=newMiddleValue*newMiddleValue;
            
            
-           
+           //if the highest val is higher than your oritinal num
+           //go into this process to make the max your new middle to get
+           //closer to the sqrt
             if (highVal>=yourNum)
             {
             
@@ -52,6 +54,11 @@ public class Root                                         {
             
             
             }
+            
+            
+            //change the minimum to the new middle value to
+            //get close to the sqrt from the bottom end of
+            //the spectrum
             
             else if (highVal<yourNum)
             
@@ -62,6 +69,7 @@ public class Root                                         {
             {   
                 
         
+        //set var difference to maximum-minimum values
         difference=max-min;
         
         
@@ -74,11 +82,12 @@ public class Root                                         {
             
             
             
-            }
+            }//end else if
         
        
-        }
+        }//end tolerance loop
+        //print the new middle value which should be the sqrt
         System.out.println(newMiddleValue);
         
-    }
-}
+    }//end method
+}//end class
